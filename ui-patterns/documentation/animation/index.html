@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Watson Design Guide | UI Patterns - Animation</title><link rel="stylesheet" href="/css/crick.css"></head><body><header library-class="heading"><nav><a href="/guidelines">Guidelines</a> <a href="/principles">Principles</a> <a href="/ui-patterns" data-state="active">UI Patterns</a></nav></header><main library-class="body"><aside library-class="subnav"><nav><strong>Documentation</strong><ul><li><a href="/ui-patterns/documentation/animation" data-state="active">Animation</a></li></ul><strong>Patterns</strong><ul><li><a href="/ui-patterns/patterns/base">Base</a></li><li><a href="/ui-patterns/patterns/components">Components</a></li></ul></nav></aside><article library-class="main-content"><div class="base--STYLED"><h2 id="animation-guidelines">Animation Guidelines</h2><p>The metaphor for animation comes from the IBM Design Language metaphor <em>elegant machine motion</em>. Elegant machine motion consists of very quick movements with strong easing at the beginning and/or end of the animation with subtle offsets.</p><h2 id="properties">Properties</h2><p>Properties are the elements of an object that will change over time. Below are the properties you can animate within CSS. It is recommended to use the most performant properties first. If the effect cannot be achieved, use the general list of properties as a fall back if the effect cannot be achieved using those.</p><p><strong>Most Performant Properties</strong></p><ul><li>Position: <code>transform: translate(npx,npx);</code></li><li>Scale: <code>transform: scale(n);</code></li><li>Rotation: <code>transform: rotate(ndeg);</code></li><li>Opacity: <code>opacity: 0...1;</code></li></ul><p>More Information about why these are performant see <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">this blog post.</a></p><p>General list of the other properties you can animate:</p><ul><li><code>background-color</code></li><li><code>border-width</code></li><li><code>clip</code></li><li><code>font-size</code></li><li><code>left</code></li><li><code>margin</code></li><li><code>min-height</code></li><li><code>outline-color</code></li><li><code>padding</code></li><li><code>text-shadow</code></li><li><code>visibility</code></li><li><code>z-index</code></li><li><code>background-position</code></li><li><code>border-spacing</code></li><li><code>color</code></li><li><code>font-weight</code></li><li><code>letter-spacing</code></li><li><code>max-height</code></li><li><code>min-width</code></li><li><code>outline-offset</code></li><li><code>right</code></li><li><code>top</code></li><li><code>width</code></li><li><code>border-color</code></li><li><code>bottom</code></li><li><code>crop</code></li><li><code>height</code></li><li><code>line-height</code></li><li><code>max-width</code></li><li><code>opacity</code></li><li><code>outline-width</code></li><li><code>text-indent</code></li><li><code>vertical-align</code></li><li><code>word-spacing</code></li></ul><p>Great example of all the different properties that can be animated <a href="http://leaverou.github.io/animatable/">here.</a></p><h3 id="single-property-animations">Single Property Animations</h3><p>When animating only a single property one should follow the guidelines below.</p><p><img src="images/motion/examples/Single_Attribute-1.gif" alt="Single-Attribute"></p><pre><code class="language-scss">//box class
+.single-attribute {
+  animation: single-attribute 1s $ibm-bouncein;
+}
+
+//keyframes for animation
+@keyframes single-attribute {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</code></pre><p><strong>Easing Curves</strong></p><ul><li>Add bounces eases - this add the snap in factor that is lost if you don’t use two properties.</li><li>Snappy Bounces not physics based bouncing.<ul><li>Use of Easing Curves:<ul><li>Entrances = <code>$bounce-in</code> (Fast to Slow)</li><li>Exits = <code>$bounce-out</code> (Slow to Fast)</li><li>Interactive Elements = <code>$bounce-in-out</code></li></ul></li></ul></li></ul><h3 id="multiple-property-animations">Multiple Property Animations</h3><p>Mutliple property animations are animations where multiple properties are being animated together. With multiple property animations there are two diretions on can take. Direction 1 - Start one property alone then animate the additional properties. Direction 2 - Both Properties start at the same time then one property ends before the other. Don’t start AND stop multiple properties at the same time. Choose one or the other.</p><p><strong>Direction 1</strong><br>Start one property alone then animate the additional properties.</p><p><img src="images/motion/examples/Option-A.gif" alt="Direction-1"></p><pre><code class="language-scss">//box class
+.animation-a {
+  animation: animation-a 1s $ibm-snapin;
+  transform-origin: 0% 100%;
+}
+
+//keyframes for animation
+@keyframes animation-a {
+  0% {
+    transform: scale(0 , 0);
+  }
+  50% {
+    transform: scale(.5 , 0);
+  }
+  100% {
+    transform: scale(1 , 1);
+  }
+}
+</code></pre><p><strong>Direction 2</strong><br>Both Properties start at the same time then one property ends before the other.</p><p><img src="images/motion/examples/Option-B.gif" alt="Direction-2"></p><pre><code class="language-scss">//box class
+.animation-b {
+  animation: animation-b 1s $ibm-snapin;
+  transform-origin: 0% 100%;
+}
+
+//keyframes for animation
+@keyframes animation-b {
+  0% {
+    transform: scale(0 , 0);
+  }
+  30% {
+    transform: scale(.2 , 0);
+  }
+  80% {
+    transform: scaleY(.5);
+  }
+  100% {
+    transform: scale(1 , 1);
+  }
+}
+</code></pre><p><strong>Easing Curves</strong></p><ul><li>Use of Easing Curves:<ul><li>Entrances = <code>$snap-in</code> (Fast to Slow)</li><li>Exits = <code>$snap-out</code> (Slow to Fast)</li><li>Interactive Elements = <code>$snap-in-out</code></li></ul></li></ul><h2 id="singular-vs-sequence-of-actions">Singular vs. Sequence of Actions</h2><p>Within UI there are instances where only one element moves vs. multiple elements a sequence of elements. Below are the guidelines for those instances.</p><h3 id="singular-action">Singular Action</h3><p>A Singluar action animation is when you animate only one element on the screen &amp; does not contain complementary elements.</p><p><img src="images/motion/examples/Option-B.gif" alt="Singular action shows a box animating scaling horizontally then vertically"></p><h3 id="sequence-of-actions">Sequence of Actions</h3><p>A Sequence of actions animation is where you have multiple elements typically a Primary Action then a Secondary action which complements the Primary.</p><p><img src="images/motion/examples/secondary-action.gif" alt="Secondary action shows a box animating scaling horizontally then vertically with text animating up following the hertical scale"></p><p>In the example above, the text animations and delay enhance by following the lead of the primary action (scaling of the box).</p><h4 id="things-to-consider-with-sequence-of-actions">Things to consider with Sequence of Actions</h4><ul><li>Choreography: - Elements should have coordinate within hierarchy.</li></ul><h3 id="delays">Delays</h3><p>Delays need to be consistent - needs to have the same rate across similar content.</p></div></article></main></body></html>

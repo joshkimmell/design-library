@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Watson Design Guide | UI Patterns - Pre</title><link rel="stylesheet" href="/css/crick.css"></head><body><header library-class="heading"><nav><a href="/guidelines">Guidelines</a> <a href="/principles">Principles</a> <a href="/ui-patterns" data-state="active">UI Patterns</a></nav></header><main library-class="body"><aside library-class="subnav"><nav><strong>Documentation</strong><ul><li><a href="/ui-patterns/documentation/animation">Animation</a></li></ul><strong>Patterns</strong><ul><li><a href="/ui-patterns/patterns/base">Base</a></li><li><a href="/ui-patterns/patterns/components">Components</a></li></ul></nav></aside><article library-class="main-content"><article library-class="pattern"><h2 library-class="pattern--name">Pre</h2><p library-class="pattern--description">Pre formatted text</p><div library-class="pattern--rendered"><header library-class="pattern--header"><h3>Rendered Pattern</h3></header><pre class="base--pre"><code class="base--code">h1 {
+  font-size: ms(5);
+  font-weight: normal;
+
+  @include breakpoint($large-typography) {
+    font-size: ms(6);
+  }
+}
+</code></pre></div><div library-class="pattern--code"><header library-class="pattern--header"><h3>Pattern Code</h3></header><pre class="base--pre"><code class="language-html base--code">&lt;pre class=&quot;base--pre&quot;&gt;&lt;code class=&quot;base--code&quot;&gt;h1 {
+  font-size: ms(5);
+  font-weight: normal;
+
+  @include breakpoint($large-typography) {
+    font-size: ms(6);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+
+</code></pre></div><div library-class="pattern--readme" class="base--STYLED"><h1 id="pre-text">Pre Text</h1><p>Pre formatted text, <code>&lt;pre&gt;</code>, is an example of text that whose whitespace is preserved. It is most often used with a nested <code>&lt;code&gt;</code> tag to display code blocks</p><h2 id="available-classes">Available Classes</h2><p>Styling can be applied in the following ways:</p><ul><li><code>.base--pre</code> - class</li><li><code>.base--STYLED pre</code> - <code>&lt;pre&gt;</code> tag inside a class of <code>.base--STYLED</code></li><li><code>%base--pre</code> - extended through Sass</li></ul></div></article></article></main></body></html>

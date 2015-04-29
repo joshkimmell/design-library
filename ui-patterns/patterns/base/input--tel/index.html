@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Watson Design Guide | UI Patterns - Tel Input</title><link rel="stylesheet" href="/css/crick.css"></head><body><header library-class="heading"><nav><a href="/guidelines">Guidelines</a> <a href="/principles">Principles</a> <a href="/ui-patterns" data-state="active">UI Patterns</a></nav></header><main library-class="body"><aside library-class="subnav"><nav><strong>Documentation</strong><ul><li><a href="/ui-patterns/documentation/animation">Animation</a></li></ul><strong>Patterns</strong><ul><li><a href="/ui-patterns/patterns/base">Base</a></li><li><a href="/ui-patterns/patterns/components">Components</a></li></ul></nav></aside><article library-class="main-content"><article library-class="pattern"><h2 library-class="pattern--name">Tel Input</h2><p library-class="pattern--description">Tel input field for a form</p><div library-class="pattern--rendered"><header library-class="pattern--header"><h3>Rendered Pattern</h3></header><label class="base--block-label" for="input1">Basic Tel Input</label><input type="tel" id="input1" class="base--tel-input"><label class="base--block-label" for="input2">Placeholder with Default Tel Pattern</label><input type="tel" id="input2" placeholder="8882121881" class="base--tel-input"><label class="base--block-label" for="input3">Pattern Based on USA Phone Number</label><input type="tel" id="input3" placeholder="123-343-9938" pattern="\d{3}[\-]\d{3}[\-]\d{4}" class="base--tel-input"><label class="base--block-label" for="input4">Disabled Tel Input</label><input type="tel" id="input4" placeholder="8882121881" class="base--tel-input" disabled></div><div library-class="pattern--code"><header library-class="pattern--header"><h3>Pattern Code</h3></header><pre class="base--pre"><code class="language-html base--code">
+&lt;!-- {% pattern input from base %} --&gt;
+&lt;label class=&quot;base--block-label&quot; for=&quot;input1&quot;&gt;Basic Tel Input&lt;/label&gt;
+&lt;input type=&quot;tel&quot; id=&quot;input1&quot;   class=&quot;base--tel-input&quot; &gt;&lt;/input&gt;
+
+&lt;label class=&quot;base--block-label&quot; for=&quot;input2&quot;&gt;Placeholder with Default Tel Pattern&lt;/label&gt;
+&lt;input type=&quot;tel&quot; id=&quot;input2&quot; placeholder=&quot;8882121881&quot;   class=&quot;base--tel-input&quot; &gt;&lt;/input&gt;
+
+&lt;label class=&quot;base--block-label&quot; for=&quot;input3&quot;&gt;Pattern Based on USA Phone Number&lt;/label&gt;
+&lt;input type=&quot;tel&quot; id=&quot;input3&quot; placeholder=&quot;123-343-9938&quot;  pattern=&quot;\d{3}[\-]\d{3}[\-]\d{4}&quot;  class=&quot;base--tel-input&quot; &gt;&lt;/input&gt;
+
+&lt;label class=&quot;base--block-label&quot; for=&quot;input4&quot;&gt;Disabled Tel Input&lt;/label&gt;
+&lt;input type=&quot;tel&quot; id=&quot;input4&quot; placeholder=&quot;8882121881&quot;   class=&quot;base--tel-input&quot; disabled&gt;&lt;/input&gt;
+
+
+&lt;!-- {% end pattern input from base %} --&gt;
+
+</code></pre></div><div library-class="pattern--readme" class="base--STYLED"><h1 id="tel-input">Tel Input</h1><p>Basic telephone input type for a form. These can read for specific regex phone patterns, or by default, accept a numeric-only input.</p><h2 id="available-classes">Available Classes</h2><p>Styling can be applied in the following ways:</p><ul><li><code>.base--tel-input</code> - class</li><li><code>.base--STYLED input[type=&quot;tel&quot;]</code> - <code>&lt;input type=&quot;tel&quot;&gt;</code> tag inside a class of <code>.base--STYLED</code></li><li><code>%base--tel-input</code> - extended through Sass</li></ul></div></article></article></main></body></html>

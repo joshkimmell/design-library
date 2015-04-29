@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Watson Design Guide | UI Patterns - Month Input</title><link rel="stylesheet" href="/css/crick.css"></head><body><header library-class="heading"><nav><a href="/guidelines">Guidelines</a> <a href="/principles">Principles</a> <a href="/ui-patterns" data-state="active">UI Patterns</a></nav></header><main library-class="body"><aside library-class="subnav"><nav><strong>Documentation</strong><ul><li><a href="/ui-patterns/documentation/animation">Animation</a></li></ul><strong>Patterns</strong><ul><li><a href="/ui-patterns/patterns/base">Base</a></li><li><a href="/ui-patterns/patterns/components">Components</a></li></ul></nav></aside><article library-class="main-content"><article library-class="pattern"><h2 library-class="pattern--name">Month Input</h2><p library-class="pattern--description">Month input field for a form</p><div library-class="pattern--rendered"><header library-class="pattern--header"><h3>Rendered Pattern</h3></header><label class="base--block-label" for="input1">Basic Month Input</label><input type="month" id="input1" class="base--month-input"><label class="base--block-label" for="input2">Placeholder Month</label><input type="month" id="input2" placeholder="This is placeholder month" class="base--month-input"><label class="base--block-label" for="input3">Disabled Month Input</label><input type="month" id="input3" placeholder="Can&#39;t click me" class="base--month-input" disabled></div><div library-class="pattern--code"><header library-class="pattern--header"><h3>Pattern Code</h3></header><pre class="base--pre"><code class="language-html base--code">
+&lt;!-- {% pattern input from base %} --&gt;
+&lt;label class=&quot;base--block-label&quot; for=&quot;input1&quot;&gt;Basic Month Input&lt;/label&gt;
+&lt;input type=&quot;month&quot; id=&quot;input1&quot;   class=&quot;base--month-input&quot; &gt;&lt;/input&gt;
+
+&lt;label class=&quot;base--block-label&quot; for=&quot;input2&quot;&gt;Placeholder Month&lt;/label&gt;
+&lt;input type=&quot;month&quot; id=&quot;input2&quot; placeholder=&quot;This is placeholder month&quot;   class=&quot;base--month-input&quot; &gt;&lt;/input&gt;
+
+&lt;label class=&quot;base--block-label&quot; for=&quot;input3&quot;&gt;Disabled Month Input&lt;/label&gt;
+&lt;input type=&quot;month&quot; id=&quot;input3&quot; placeholder=&quot;Can&#39;t click me&quot;   class=&quot;base--month-input&quot; disabled&gt;&lt;/input&gt;
+
+
+&lt;!-- {% end pattern input from base %} --&gt;
+
+</code></pre></div><div library-class="pattern--readme" class="base--STYLED"><h1 id="month-input">Month Input</h1><p>Basic month input for a form.</p><h2 id="available-classes">Available Classes</h2><p>Styling can be applied in the following ways:</p><ul><li><code>.base--month-input</code> - class</li><li><code>.base--STYLED input[type=&quot;month&quot;]</code> - <code>&lt;input type=&quot;month&quot;&gt;</code> tag inside a class of <code>.base--STYLED</code></li><li><code>%base--month-input</code> - extended through Sass</li></ul></div></article></article></main></body></html>
